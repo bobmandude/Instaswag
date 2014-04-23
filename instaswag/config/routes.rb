@@ -1,4 +1,4 @@
 Instaswag::Application.routes.draw do
+  get '/swag/:id' => 'application#show'
   get '/home/' => 'application#home'
-  get '/swag/1' => 'application#first'
 end
