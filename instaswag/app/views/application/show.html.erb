@@ -1,14 +1,17 @@
 <div class = "container">
   <div class = "row">
     <div class = "col-md-4">
-      <a href="#"><img src = "<%= @url1 %>" ></a>
+      <a href="#"><img src = "<%= @photo.url1 %>" ></a>
     </div>
     <div class = "col-md-4">
-      <a href="#"><img src = "<%= @url2 %>" ></a>
+      <a href="#"><img src = "<%= @photo.url2 %>" ></a>
     </div>
     <div class = "col-md-4">
-      <img src = "<%= @url3 %>">
+      <img src = "<%= @photo.url3 %>">
     </div>
+  </div>
+  <div class="links">
+    <a href = "/swag/<%= @photo.id %>/edit">edit</a>
   </div>
 </div>
 

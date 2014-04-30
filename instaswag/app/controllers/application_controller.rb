@@ -7,22 +7,39 @@ class ApplicationController < ActionController::Base
     @url1 = "http://i.imgur.com/C5kf5Yb.gif"
     @url2 = "http://i.imgur.com/a8bTQzf.jpg"
     @url3 = "http://4.bp.blogspot.com/-fYJrkNWec08/T9EYOmNGPNI/AAAAAAAAC04/UtdRRM8a3hc/s640/cat-fat-dancing-cat-gif.gif"
-    render 'show'
+    render 'home'
   end
   
   def show
-    if params['id'] == '1'
-      @url1 = "http://www.reactiongifs.com/r/juhf.gif"
-      @url2 = "http://www.reactiongifs.com/r/isn.gif"
-      @url3 = "http://www.reactiongifs.com/r/sansa-stark.gif"
-      elsif params['id'] == '2'
-      @url1 = "http://i.imgur.com/C5kf5Yb.gif"
-      @url2 = "http://i.imgur.com/a8bTQzf.jpg"
-      @url3 = "http://4.bp.blogspot.com/-fYJrkNWec08/T9EYOmNGPNI/AAAAAAAAC04/UtdRRM8a3hc/s640/cat-fat-dancing-cat-gif.gif"
-    end
+    @photo = Photo.find_by_id(params['id'])
     render 'show'
   end
  
+  def new
+  end
+  
+  def create
+    p = Photo.new
+    p.url1 = params['url1']
+    p.url2 = params['url2']
+    p.url3 = params['url3']
+    p.save
+    redirect_to "/swag/#{ p.id }"
+  end
+  
+  def edit
+    @photo = Photo.find_by_id(params['id'])
+  end
+  
+  def update
+    p = Photo.find_by_id(params['id'])
+    p.url1 = params['url1']
+    p.url2 = params['url2']
+    p.url3 = params['url3']
+    p.save
+    redirect_to "/swag/#{ p.id }"
+  end
+  
 end
 
 
